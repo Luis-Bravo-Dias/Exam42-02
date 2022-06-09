@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_bits.c                                     :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 12:37:26 by lleiria-          #+#    #+#             */
-/*   Updated: 2022/06/09 11:08:57 by lleiria-         ###   ########.fr       */
+/*   Created: 2022/06/09 12:32:59 by lleiria-          #+#    #+#             */
+/*   Updated: 2022/06/09 12:37:30 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned char	reverse_bits(unsigned char b)
+int	is_power_of_2(unsigned int n)
 {
-	unsigned char	r;
-	unsigned int	byte_len;
-
-	r = 0;
-	byte_len = 8;
-	while (byte_len--)
-	{
-		r = (r << 1) | (b & 1);
-		b = b >> 1;
-	}
-	return (r);
+	return (n > 0 && !(n & (n - 1)));
 }

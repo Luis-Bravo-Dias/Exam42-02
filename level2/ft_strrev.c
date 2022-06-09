@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_bits.c                                     :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 12:37:26 by lleiria-          #+#    #+#             */
-/*   Updated: 2022/06/09 11:08:57 by lleiria-         ###   ########.fr       */
+/*   Created: 2022/06/09 11:16:38 by lleiria-          #+#    #+#             */
+/*   Updated: 2022/06/09 11:40:46 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned char	reverse_bits(unsigned char b)
-{
-	unsigned char	r;
-	unsigned int	byte_len;
+#include <stdio.h>
 
-	r = 0;
-	byte_len = 8;
-	while (byte_len--)
+char	*ft_strrev(char *str)
+{
+	int		i;
+	int		rev;
+	char	tmp;
+
+	i = 0;
+	rev = 0;
+	while (str[rev])
+		rev++;
+	rev--;
+	while (i < rev)
 	{
-		r = (r << 1) | (b & 1);
-		b = b >> 1;
+		tmp = str[i];
+		str[i] = str[rev];
+		str[rev] = tmp;
+		i++;
+		rev--;
 	}
-	return (r);
+	return (str);
+}
+
+int     main()
+{
+    char s[6] = "asdfg";
+
+    printf("%s", ft_strrev(s));
 }
